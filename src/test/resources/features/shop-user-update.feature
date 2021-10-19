@@ -1,4 +1,3 @@
-@shop
 Feature: Change user information after login
 
 

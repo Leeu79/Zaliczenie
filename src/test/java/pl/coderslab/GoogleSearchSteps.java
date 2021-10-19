@@ -40,7 +40,7 @@ public class GoogleSearchSteps {
     public void theFirstOneShouldContainKeyword(String expectedText) {
         System.out.println(expectedText);
     }
-    @And("close browser")
+    @And("close search browser")
     public void closeBrowser(){
         driver.quit();
     }

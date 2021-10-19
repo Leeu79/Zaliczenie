@@ -11,7 +11,10 @@ public class MS_AddressPage {
     @FindBy(xpath = "//*[@id=\"address-link\"]")
     WebElement addressBtn;
 
-    @FindBy(xpath = "//*[@id='content']/div[2]/a")
+    @FindBy(xpath = "//*[@id=\"addresses-link\"]")
+    WebElement addressesBtn;
+
+    @FindBy(css = "a[data-link-action='add-address']")
     WebElement createNewAddressBtn;
 
     @FindBy(name = "alias")
@@ -43,10 +46,13 @@ public class MS_AddressPage {
 
 
     public void enterCreateNewAddress () {
-        addressBtn.click();
-//        this.initElements(driver);
-//        createNewAddressBtn.click();
-//        this.initElements(driver);
+        try {
+            addressBtn.click();
+        } catch (Exception e) {
+            addressesBtn.click();
+            createNewAddressBtn.click();
+        }
+
     }
     public void enterAliasAddressZipCityCountryPhoneAndSave(String alias, String address, String city, String zip, String country, String phone) {
         aliasBtn.click();
@@ -63,7 +69,6 @@ public class MS_AddressPage {
         postCodeBtn.sendKeys(zip);
         Select countrySelect = new Select(countryBtn);
         countrySelect.selectByVisibleText("United Kingdom");
-        countryBtn.click();
         phoneBtn.click();
         phoneBtn.clear();
         phoneBtn.sendKeys(phone);

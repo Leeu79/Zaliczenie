@@ -1,3 +1,4 @@
+@BuySweter
 Feature: MyStore - add user new address after login
 
   Scenario Outline: Add User  new address
